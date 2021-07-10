@@ -1,9 +1,8 @@
 Config = {}
 
-Config.policejob = 'police'
+Config.policeJob = 'police'
 
-Config.police = 
-{
+Config.police = {
   "police",
   "police2",
   "police3",
@@ -14,28 +13,6 @@ Config.police =
   "riot2",
   "sheriff",
   "sheriff2",
-}
-
-Config.PolicePeds = {
-  -- police
-  "s_m_y_cop_01",
-  "s_f_y_cop_01",
-  -- sheriff
-  "s_m_y_ranger_01",
-  "s_f_y_ranger_01",
-  "s_m_y_sheriff_01",
-  "s_f_y_sheriff_01",
-  -- fbi
-  "s_m_m_fibsec_01",
-  -- security
-  "s_m_m_security_01",
-  "s_m_m_prisguard_01",
-  -- military
-  "s_m_m_marine_01",
-  "s_m_y_marine_03",
-  "s_m_y_marine_01",
-  -- swatt
-  "s_m_y_swat_01",
 }
 
 Config.blacklist = 
@@ -51,6 +28,7 @@ Config.blacklist =
   "halftrack",
   "crusader",
   "vetir",
+
 -- BATEAUX
   "dinghy",
   "dinghy2",
@@ -75,6 +53,7 @@ Config.blacklist =
   "longfin",
   "patrolboat",
   "predator",
+
 -- AVIONS
   "alkonost",
   "volatol",
@@ -112,7 +91,8 @@ Config.blacklist =
   "avenger2",
   "avenger",
   "alphaz1",
--- HELICOPTER
+
+-- HELICO
   "buzzard",
   "buzzard2",
   "annihilator",
@@ -141,3 +121,26 @@ Config.blacklist =
   "seasparrow3",
   -- "polmav"
 }
+
+-- Config.policePeds = {
+--   -- police
+--   "s_m_y_cop_01",
+--   "s_f_y_cop_01",
+--   -- sheriff
+--   "s_m_y_ranger_01",
+--   "s_f_y_ranger_01",
+--   "s_m_y_sheriff_01",
+--   "s_f_y_sheriff_01",
+--   -- fbi
+--   "s_m_m_fibsec_01",
+--   -- security
+--   "s_m_m_security_01",
+--   "s_m_m_prisguard_01",
+--   -- military
+--   "s_m_m_marine_01",
+--   "s_m_y_marine_03",
+--   "s_m_y_marine_01",
+--   -- swatt
+--   "s_m_y_swat_01",
+-- }
+
