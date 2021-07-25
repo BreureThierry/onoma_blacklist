@@ -1,48 +1,21 @@
+ESX = nil TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+
 --#######################################################################
 -- Fonctions [Niveaux de recherche]
 
--- # Recherché par les autorités niveau 1
-function wanted()
+function setWanted(wantedLevel)
 	local playerId = PlayerId()
-	local wantedLevel = 1
-	if GetPlayerWantedLevel(playerId) == 0 then
-		SetPlayerWantedLevel(playerId, wantedLevel, false)
-		SetPlayerWantedLevelNow(playerId, true)
-		Wait(500)
-		ESX.ShowNotification('Les autoritées ~r~te recherche !~w~')
-	end
-end
--- # Recherché par les autorités niveau 2
-function mediumWanted()
-	local playerId = PlayerId()
-	local wantedLevel = 2
-	if GetPlayerWantedLevel(playerId) >= 0 then
-		SetPlayerWantedLevel(playerId, wantedLevel, false)
-		SetPlayerWantedLevelNow(playerId, true)
-		Wait(500)
-		ESX.ShowNotification('Les autoritées ~r~te recherche !~w~')
-	end
-end
--- # Recherché par les autorités niveau 3
-function maxWanted()
-	local playerId = PlayerId()
-	local wantedLevel = 3
-	if GetPlayerWantedLevel(playerId) >= 0 then
-		SetPlayerWantedLevel(playerId, wantedLevel, false)
-		SetPlayerWantedLevelNow(playerId, true)
-		Wait(500)
-		ESX.ShowNotification('Les autoritées ~r~te recherche activement !~w~')
-	end
-end
--- # Fin de la recherche par les autorités
-function endWanted()
-	local playerId = PlayerId()
-	local wantedLevel = 0
-	if GetPlayerWantedLevel(playerId) ~= 0 then
-		SetPlayerWantedLevel(playerId, wantedLevel, false)
-		SetPlayerWantedLevelNow(playerId, true)
-		Wait(500)
-		ESX.ShowNotification('Les autoritées ont stoppé ta recherche !')
+	SetPlayerWantedLevel(playerId, wantedLevel, false)
+	SetPlayerWantedLevelNow(playerId, true)
+
+	if wantedLevel == 1 then
+		ESX.ShowAdvancedNotification("Anonyme", ("%s"):format(playerName), "Qu'est-ce que t'as foutu ?! \nLa LSPD te recherche maintenant !", "CHAR_LESTER", 1) -- ESX.ShowNotification('Les autoritées ~r~te recherche !~w~')
+	elseif wantedLevel == 2 then
+		ESX.ShowAdvancedNotification("Anonyme", ("%s"):format(playerName), "Qu'est-ce que t'as encore foutu ?! \nLa LSPD te recherche bordel !", "CHAR_LESTER", 1)
+	elseif wantedLevel == 3 then
+		-- ESX.ShowAdvancedNotification("Anonyme", ("%s"):format(playerName), "Là t'es dans la merde !\nBarre toi et trouve une planque.", "CHAR_LESTER", 1)
+	elseif wantedLevel == 0 then
+		ESX.ShowAdvancedNotification("Anonyme", ("%s"):format(playerName), "Ok, t'es tranquille maintenant.\nMais ne touche plus aux véhicules de flics !", "CHAR_LESTER", 1)
 	end
 end
 

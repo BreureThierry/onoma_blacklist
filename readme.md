@@ -21,54 +21,13 @@ Les autorités entre en alerte lorsque qu'on tente d'ouvrir un véhicule de poli
 
 ## Adaptation de es_extended :
 
-**Dans le client/main.lua -> ajouter ceci :**
+**es_extended/config.lua :**
 
 ```
-if Config.EnableWantedLevel then
-	Citizen.CreateThread(function()
-		for i = 1, 32 do
-			EnableDispatchService(i, true)
-            -- Note à titre informatif // peut être supprimer
-			-- EnableDispatchService(	1,		boolean		)	- valeur -> [DT_] Invalid	
-			-- EnableDispatchService(	2,		boolean		) 	- valeur -> [DT_] PoliceAutomobile
-			-- EnableDispatchService(	3,		boolean		) 	- valeur -> [DT_] PoliceHelicopter
-			-- EnableDispatchService(	4,		boolean		) 	- valeur -> [DT_] FireDepartment
-			-- EnableDispatchService(	5,		boolean		) 	- valeur -> [DT_] SwatAutomobile
-			-- EnableDispatchService(	6,		boolean		) 	- valeur -> [DT_] AmbulanceDepartment
-			-- EnableDispatchService(	7,		boolean		) 	- valeur -> [DT_] PoliceRiders
-			-- EnableDispatchService(	8,		boolean		) 	- valeur -> [DT_] PoliceVehicleRequest
-			-- EnableDispatchService(	9,		boolean		) 	- valeur -> [DT_] PoliceRoadBlock
-			-- EnableDispatchService(	10,		boolean		) 	- valeur -> [DT_] PoliceAutomobileWaitPulledOver
-			-- EnableDispatchService(	11,		boolean		) 	- valeur -> [DT_] PoliceAutomobileWaitCruising
-			-- EnableDispatchService(	12,		boolean		) 	- valeur -> [DT_] Gangs
-			-- EnableDispatchService(	13,		boolean		) 	- valeur -> [DT_] SwatHelicopter
-			-- EnableDispatchService(	14,		boolean		) 	- valeur -> [DT_] PoliceBoat
-			-- EnableDispatchService(	15,		boolean		) 	- valeur -> [DT_] ArmyVehicle
-			-- EnableDispatchService(	16,		boolean		) 	- valeur -> [DT_] BikerBackup
-		end
-		while true do
-			Citizen.Wait(0)
-			SetPoliceIgnorePlayer(playerId, false)
-			SetMaxWantedLevel(Config.WantedLevelMax)
-			SetPlayerWantedLevelNoDrop(playerId, Config.WantedLevelMax, false)
-		end
-		local playerId = PlayerId()
-		if GetPlayerWantedLevel(playerId) == 0 then
-			SetPlayerWantedLevel(playerId, Config.WantedLevelMax, false)
-			SetPlayerWantedLevelNow(playerId, false)
-		end
-	end)
-end
+Config.DisableWantedLevel doit être sur false
 ```
 
-**Dans le config.lua -> ajoutez ceci :**
-
-```
--- Important !! Config.DisableWantedLevel doit être sur false pour que onoma_blacklist fonctionne pleinement !
-Config.EnableWantedLevel	= true
-Config.WantedLevelMax		= 3  -- niveau de recherche maximum que les autorité atteindrons / correspond au nombre d'étoile, actif seulement si Config.EnableWantedLevel = true
-```
-
+Il va falloir adapter votre serveur afin que les ped réagissent au crimes
 
 ## Bug ou problèmes rencontrer :
 

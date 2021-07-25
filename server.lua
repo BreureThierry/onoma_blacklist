@@ -9,10 +9,11 @@ print("^0[^6Future^0] ^7:^0 ^7Créer une relation amical entre joueur lspd et pe
 print("^0~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^7")
 
 ESX = nil
+TriggerEvent('esx:getSharedObject', function(obj) 
+	ESX = obj 
+end)
 
-Citizen.CreateThread(function()
-	while ESX == nil do
-	  TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-	  Citizen.Wait(0)
-	end
+ESX.RegisterServerCallback("onm_blacklist:getPlayerName", function(source, cb)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	cb(xPlayer.getName())
 end)
